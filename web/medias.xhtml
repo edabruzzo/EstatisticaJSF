@@ -27,24 +27,14 @@ and open the template in the editor.
   			<p:outputPanel> CÁLCULO DE MÉDIAS </p:outputPanel>
                         
                         
-                          <f:view>
-     <h:form id="formDados">
-         <p:dataTable id="tabelaDados" >
-             <f:facet name="header">MÉDIAS CALCULADAS</f:facet>
-             <p:column headerText="MÉDIA ARITMÉTICA">
-                 <h:outputText value="#{calculosBean.mediaAritmetica}"/>
-             </p:column>
-              <p:column headerText="MÉDIA GEOMÉTRICA">
-                  <h:outputText  value="#{calculosBean.mediaGeometrica}"/>
-             </p:column>
-              <p:column headerText="MÉDIA HARMÔNICA">
-                  <h:outputText  value="#{calculosBean.mediaHarmonica}"/>
-             </p:column>
-         </p:dataTable>
+      <form>
+          <h:outputText value="MÉDIA ARITMÉTICA"/> 
+          <h:outputText value="#{calculosBean.mediaAritmetica}"/>
+          <h:outputText value="MÉDIA GEOMÉTRICA"/> 
+          <h:outputText value="#{calculosBean.mediaGeometrica}"/>
+          <h:outputText value="MÉDIA HARMÔNICA"/> 
+          <h:outputText value="#{calculosBean.mediaHarmonica}"/>
      </h:form>
- </f:view>    
-                        
-    
                         
 </h:body>
         
