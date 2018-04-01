@@ -23,19 +23,18 @@ and open the template in the editor.
     </h:head>
     
     
-    <h:body style="background-color: black">
+    <h:body >
   			<p:outputPanel> CÁLCULO DE MÉDIAS </p:outputPanel>
-                        
-                        
-      <h:form>
-          <h:outputText value="MÉDIA ARITMÉTICA"/> 
-          <h:outputText value="#{calculosBean.mediaAritmetica}"/>
-          <h:outputText value="MÉDIA GEOMÉTRICA"/> 
-          <h:outputText value="#{calculosBean.mediaGeometrica}"/>
-          <h:outputText value="MÉDIA HARMÔNICA"/> 
-          <h:outputText value="#{calculosBean.mediaHarmonica}"/>
-     </h:form>
-                        
+    <fieldset>                   
+        <h:panelGrid>        
+          <h:outputLabel value="MÉDIA ARITMÉTICA" for="aritmetica"/> 
+          <h:outputText id="aritmetica" value="#{calculosBean.mediaAritmetica}"/>
+          <h:outputLabel value="MÉDIA GEOMÉTRICA"  for="geometrica"/> 
+          <h:outputText id="geometrica" value="#{calculosBean.mediaGeometrica}"/>
+          <h:outputLabel value="MÉDIA HARMÔNICA"  for="harmonica"/> 
+          <h:outputText id="harmonica" value="#{calculosBean.mediaHarmonica}"/>
+        </h:panelGrid>       
+    </fieldset>                    
 </h:body>
         
                         
