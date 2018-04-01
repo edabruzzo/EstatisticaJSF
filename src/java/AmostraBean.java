@@ -56,6 +56,12 @@ public class AmostraBean implements Serializable{
         
     }
     
+    public void limparDados(){
+        
+        amostra.getListaDadosColetados().clear();
+        
+    }
+    
     
     public String calculaMedias(){
         
