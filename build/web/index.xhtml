@@ -65,7 +65,8 @@ and open the template in the editor.
                         
                         
         <p:commandButton id="limpaTela" value="LIMPAR DADOS" 
-        action="#{amostraBean.limparDados()}">
+        action="#{amostraBean.limparDados()}"
+          process="@form, @this" update=":formDados:tabelaDados">
         </p:commandButton>
                         
 </h:body>
