@@ -25,7 +25,8 @@ public class CalculosBean {
     private Amostra amostra;
     private double somaValoresAmostrados = 0;
     private double somaFrequencias = 0;
-    
+    private double somaValorFiDivideXi;
+    private double somatoriaValorFiMultiplicaLogXi;
     
     
      /**
@@ -113,12 +114,40 @@ public class CalculosBean {
             somaValoresAmostrados += key;
 	    somaFrequencias += tabelaFrequencia.get(key);
             
-            
+            double valorXi = key;
+            int valorFi = tabelaFrequencia.get(key);
+	    
+            this.somaValorFiDivideXi += (valorFi / valorXi);
+            this.somatoriaValorFiMultiplicaLogXi += (valorFi * Math.log10(valorXi));  
         }
         
         
     }
 
+    
+    
+    public void calcularMediaAritmetica(){
+        
+        mediaAritmetica = (somaValoresAmostrados * somaFrequencias) / somaFrequencias; 
+        
+        
+    }
+    
+    
+        public void calcularMediaHarmonica(){
+        
+                    this.mediaHarmonica = this.somaFrequencias / this.somaValorFiDivideXi;
+    }
+    
+    
+     public void calcularMediaGeometrica(){
+        
+        double logMediaGeometrica = this.somatoriaValorFiMultiplicaLogXi / this.somaFrequencias;
+        this.mediaGeometrica =  Math.pow(10, logMediaGeometrica);
+        
+    }
+    
+    
     
     
 }

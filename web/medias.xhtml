@@ -32,22 +32,19 @@ and open the template in the editor.
          <p:dataTable id="tabelaDados" >
              <f:facet name="header">MÉDIAS CALCULADAS</f:facet>
              <p:column headerText="MÉDIA ARITMÉTICA">
-                 <h:outputText value="#{item}"/>
+                 <h:outputText value="#{calculosBean.mediaAritmetica}"/>
              </p:column>
               <p:column headerText="MÉDIA GEOMÉTRICA">
-                 <h:outputText value="#{item}"/>
+                  <h:outputText  value="#{calculosBean.mediaGeometrica}"/>
              </p:column>
               <p:column headerText="MÉDIA HARMÔNICA">
-                 <h:outputText value="#{item}"/>
+                  <h:outputText  value="#{calculosBean.mediaHarmonica}"/>
              </p:column>
          </p:dataTable>
      </h:form>
  </f:view>    
                         
-            
-      <p:commandButton id="calculaMedias" value="CALCULAR MÉDIAS" 
-        action="#{amostraBean.calculaMedias()}">
-        </p:commandButton>
+    
                         
 </h:body>
         
