@@ -108,16 +108,15 @@ public class CalculosBean {
         
         HashMap<Double, Integer> tabelaFrequencia = new HashMap<Double, Integer>();
         
-        amostraRecebida.stream().map((valor) -> {
+       for (Double valor : amostraRecebida){
+           
             if (!tabelaFrequencia.containsKey(valor)){
                 
                 tabelaFrequencia.put(valor, 0);
-                
-            }
-            return valor;            
-        }).forEachOrdered((valor) -> {
+            }     
+           
             tabelaFrequencia.put(valor, (tabelaFrequencia.get(valor)+1));
-        });
+        }
         
         for (Double key : tabelaFrequencia.keySet()){
             
