@@ -19,14 +19,14 @@ import javax.faces.bean.SessionScoped;
 public class CalculosBean {
 
     
-    private double mediaAritmetica;
-    private double mediaGeometrica;
-    private double mediaHarmonica;
-    private Amostra amostra;
-    private double somaValoresAmostrados = 0;
-    private double somaFrequencias = 0;
-    private double somaValorFiDivideXi;
-    private double somatoriaValorFiMultiplicaLogXi;
+    public double mediaAritmetica;
+    public double mediaGeometrica;
+    public double mediaHarmonica;
+    public Amostra amostra;
+    public  double somaValoresAmostrados = 0;
+    public  double somaFrequencias = 0;
+    public double somaValorFiDivideXi;
+    public double somatoriaValorFiMultiplicaLogXi;
     
     
      /**
@@ -93,6 +93,23 @@ public class CalculosBean {
 
   
     
+    public double getSomaValorFiDivideXi() {
+        return somaValorFiDivideXi;
+    }
+
+    public void setSomaValorFiDivideXi(double somaValorFiDivideXi) {
+        this.somaValorFiDivideXi = somaValorFiDivideXi;
+    }
+
+    public double getSomatoriaValorFiMultiplicaLogXi() {
+        return somatoriaValorFiMultiplicaLogXi;
+    }
+
+    public void setSomatoriaValorFiMultiplicaLogXi(double somatoriaValorFiMultiplicaLogXi) {
+        this.somatoriaValorFiMultiplicaLogXi = somatoriaValorFiMultiplicaLogXi;
+    }
+    
+    
     public void montarTabelaFrequencia(Amostra amostra){
         
         HashMap<Double, Integer> tabelaFrequencia = new HashMap<Double, Integer>();
@@ -127,27 +144,26 @@ public class CalculosBean {
     
     
     public void calcularMediaAritmetica(){
-        
-        mediaAritmetica = (somaValoresAmostrados * somaFrequencias) / somaFrequencias; 
-        
+        double mediaAritmetica = (this.getSomaValoresAmostrados() * this.getSomaFrequencias()) / (this.getSomaFrequencias());
+        this.setMediaAritmetica(mediaAritmetica);  
         
     }
     
     
         public void calcularMediaHarmonica(){
         
-                    this.mediaHarmonica = this.somaFrequencias / this.somaValorFiDivideXi;
-    }
+              double mediaHarmonica = this.getSomaFrequencias() / this.getSomaValorFiDivideXi();
+              this.setMediaHarmonica(mediaHarmonica);
+    }   
     
     
      public void calcularMediaGeometrica(){
         
-        double logMediaGeometrica = this.somatoriaValorFiMultiplicaLogXi / this.somaFrequencias;
-        this.mediaGeometrica =  Math.pow(10, logMediaGeometrica);
-        
+        double logMediaGeometrica = this.getSomatoriaValorFiMultiplicaLogXi() / this.getSomaFrequencias();
+        double mediaGeometrica = Math.pow(10, logMediaGeometrica);
+        this.setMediaGeometrica(mediaGeometrica);
     }
-    
-    
+
     
     
 }
