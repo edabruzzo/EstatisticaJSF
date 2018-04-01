@@ -140,6 +140,7 @@ public class CalculosBean {
     
     
     public double calcularMediaAritmetica(){
+        montarTabelaFrequencia();
         double mediaAritmetica = (this.getSomaValoresAmostrados() * this.getSomaFrequencias()) / (this.getSomaFrequencias());
         this.setMediaAritmetica(mediaAritmetica); 
         return this.getMediaAritmetica();
