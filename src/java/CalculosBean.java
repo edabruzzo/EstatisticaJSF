@@ -28,7 +28,7 @@ public class CalculosBean {
     public double somaValorFiDivideXi;
     public double somatoriaValorFiMultiplicaLogXi;
     
-    public AmostraBean amostraBean;
+    public Amostra amostra;
     
     
      /**
@@ -39,8 +39,6 @@ public class CalculosBean {
 
     
     
-    
-
     
    
     public double getMediaAritmetica() {
@@ -106,7 +104,7 @@ public class CalculosBean {
     
     public void montarTabelaFrequencia(){
         
-        List<Double> amostra =  amostraBean.listaDadosColetados();
+        List<Double> amostra =  this.amostra.getListaDadosColetados();
         
         HashMap<Double, Integer> tabelaFrequencia = new HashMap<Double, Integer>();
         
