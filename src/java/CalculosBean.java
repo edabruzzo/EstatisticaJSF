@@ -5,6 +5,7 @@
  */
 
 import java.util.HashMap;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
  
@@ -22,11 +23,12 @@ public class CalculosBean {
     public double mediaAritmetica;
     public double mediaGeometrica;
     public double mediaHarmonica;
-    public Amostra amostra;
     public  double somaValoresAmostrados = 0;
     public  double somaFrequencias = 0;
     public double somaValorFiDivideXi;
     public double somatoriaValorFiMultiplicaLogXi;
+    
+    public AmostraBean amostraBean;
     
     
      /**
@@ -39,14 +41,6 @@ public class CalculosBean {
     
     
 
-    public Amostra getAmostra() {
-        return amostra;
-    }
-
-    public void setAmostra(Amostra amostra) {
-        this.amostra = amostra;
-    }
-    
     
    
     public double getMediaAritmetica() {
@@ -110,11 +104,13 @@ public class CalculosBean {
     }
     
     
-    public void montarTabelaFrequencia(Amostra amostra){
+    public void montarTabelaFrequencia(){
+        
+        List<Double> amostra =  amostraBean.listaDadosColetados();
         
         HashMap<Double, Integer> tabelaFrequencia = new HashMap<Double, Integer>();
         
-        for (double valor : amostra.getListaDadosColetados()){
+        for (double valor : amostra){
             
             if (!tabelaFrequencia.containsKey(valor)){
                 
@@ -154,6 +150,7 @@ public class CalculosBean {
         
               double mediaHarmonica = this.getSomaFrequencias() / this.getSomaValorFiDivideXi();
               this.setMediaHarmonica(mediaHarmonica);
+             
     }   
     
     
