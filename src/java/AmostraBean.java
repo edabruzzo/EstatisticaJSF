@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
    
 
 /**
@@ -16,7 +16,7 @@ import javax.faces.bean.ViewScoped;
  * @author Emm
  */
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class AmostraBean implements Serializable{
 
     
@@ -134,7 +134,7 @@ public class AmostraBean implements Serializable{
     public void limparDados(){
         
         amostra.getListaDadosColetados().clear();
-        
+        this.amostra = new Amostra();
     }
     
     
