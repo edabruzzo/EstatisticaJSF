@@ -139,26 +139,27 @@ public class CalculosBean {
 
     
     
-    public void calcularMediaAritmetica(){
+    public double calcularMediaAritmetica(){
         double mediaAritmetica = (this.getSomaValoresAmostrados() * this.getSomaFrequencias()) / (this.getSomaFrequencias());
-        this.setMediaAritmetica(mediaAritmetica);  
-        
+        this.setMediaAritmetica(mediaAritmetica); 
+        return this.getMediaAritmetica();
     }
     
     
-        public void calcularMediaHarmonica(){
+        public double calcularMediaHarmonica(){
         
               double mediaHarmonica = this.getSomaFrequencias() / this.getSomaValorFiDivideXi();
               this.setMediaHarmonica(mediaHarmonica);
-             
+             return this.getMediaHarmonica();
     }   
     
     
-     public void calcularMediaGeometrica(){
+     public double calcularMediaGeometrica(){
         
         double logMediaGeometrica = this.getSomatoriaValorFiMultiplicaLogXi() / this.getSomaFrequencias();
         double mediaGeometrica = Math.pow(10, logMediaGeometrica);
         this.setMediaGeometrica(mediaGeometrica);
+        return this.getMediaGeometrica();
     }
 
     

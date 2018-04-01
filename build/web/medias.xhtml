@@ -28,11 +28,11 @@ and open the template in the editor.
     <fieldset>                   
         <h:panelGrid>        
           <h:outputLabel value="MÉDIA ARITMÉTICA" for="aritmetica"/> 
-          <h:outputText id="aritmetica" value="#{calculosBean.mediaAritmetica}"/>
+          <h:outputText id="aritmetica" value="#{calculosBean.calcularMediaAritmetica()}"/>
           <h:outputLabel value="MÉDIA GEOMÉTRICA"  for="geometrica"/> 
-          <h:outputText id="geometrica" value="#{calculosBean.mediaGeometrica}"/>
+          <h:outputText id="geometrica" value="#{calculosBean.calcularMediaGeometrica()}"/>
           <h:outputLabel value="MÉDIA HARMÔNICA"  for="harmonica"/> 
-          <h:outputText id="harmonica" value="#{calculosBean.mediaHarmonica}"/>
+          <h:outputText id="harmonica" value="#{calculosBean.calcularMediaHarmonica()}"/>
         </h:panelGrid>       
     </fieldset>                    
 </h:body>
