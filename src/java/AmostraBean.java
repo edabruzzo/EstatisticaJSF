@@ -24,10 +24,10 @@ public class AmostraBean implements Serializable{
     public double mediaAritmetica;
     public double mediaGeometrica;
     public double mediaHarmonica;
-    public  double somaValoresAmostrados = 0;
     public  double somaFrequencias = 0;
     public double somaValorFiDivideXi;
     public double somatoriaValorFiMultiplicaLogXi;
+    public double somaValoresFiMultiplicaXi;
     private Amostra amostra = new Amostra();
    
     
@@ -76,16 +76,6 @@ public class AmostraBean implements Serializable{
         this.mediaHarmonica = mediaHarmonica;
     }
     
-    
-    
-    public double getSomaValoresAmostrados() {
-        return somaValoresAmostrados;
-    }
-
-    public void setSomaValoresAmostrados(double somaValoresAmostrados) {
-        this.somaValoresAmostrados = somaValoresAmostrados;
-    }
-
     public double getSomaFrequencias() {
         return somaFrequencias;
     }
@@ -110,6 +100,14 @@ public class AmostraBean implements Serializable{
 
     public void setSomatoriaValorFiMultiplicaLogXi(double somatoriaValorFiMultiplicaLogXi) {
         this.somatoriaValorFiMultiplicaLogXi = somatoriaValorFiMultiplicaLogXi;
+    }
+
+    public double getSomaValoresFiMultiplicaXi() {
+        return somaValoresFiMultiplicaXi;
+    }
+
+    public void setSomaValoresFiMultiplicaXi(double somaValoresFiMultiplicaXi) {
+        this.somaValoresFiMultiplicaXi = somaValoresFiMultiplicaXi;
     }
     
     
@@ -163,15 +161,19 @@ public class AmostraBean implements Serializable{
            
             tabelaFrequencia.put(valor, (tabelaFrequencia.get(valor)+1));
         }
+       
+     
         
         for (Double key : tabelaFrequencia.keySet()){
             
-            somaValoresAmostrados += key;
-	    somaFrequencias += tabelaFrequencia.get(key);
+            System.out.println("VALOR = "+key+"FREQUENCIA = "+tabelaFrequencia.get(key));
+            
+            somaFrequencias += tabelaFrequencia.get(key);
             
             double valorXi = key;
             int valorFi = tabelaFrequencia.get(key);
 	    
+            this.somaValoresFiMultiplicaXi += (valorXi * valorFi);
             this.somaValorFiDivideXi += (valorFi / valorXi);
             this.somatoriaValorFiMultiplicaLogXi += (valorFi * Math.log10(valorXi));  
         }
@@ -183,7 +185,7 @@ public class AmostraBean implements Serializable{
     
     public double calcularMediaAritmetica(){
         montarTabelaFrequencia();
-        double mediaAritmetica = (this.getSomaValoresAmostrados() * this.getSomaFrequencias()) / (this.getSomaFrequencias());
+        double mediaAritmetica = this.getSomaValoresFiMultiplicaXi() / (this.getSomaFrequencias());
         this.setMediaAritmetica(mediaAritmetica); 
         return this.getMediaAritmetica();
     }
