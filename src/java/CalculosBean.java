@@ -7,7 +7,7 @@
 import java.util.HashMap;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
  
 
 
@@ -16,7 +16,7 @@ import javax.faces.bean.ViewScoped;
  * @author Emm
  */
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class CalculosBean {
 
     
@@ -104,21 +104,20 @@ public class CalculosBean {
     
     public void montarTabelaFrequencia(){
         
-        List<Double> amostra =  this.amostra.getListaDadosColetados();
+        List<Double> amostraRecebida =  this.amostra.getListaDadosColetados();
         
         HashMap<Double, Integer> tabelaFrequencia = new HashMap<Double, Integer>();
         
-        for (double valor : amostra){
-            
+        amostraRecebida.stream().map((valor) -> {
             if (!tabelaFrequencia.containsKey(valor)){
                 
                 tabelaFrequencia.put(valor, 0);
                 
             }
-            
+            return valor;            
+        }).forEachOrdered((valor) -> {
             tabelaFrequencia.put(valor, (tabelaFrequencia.get(valor)+1));
-            
-        }
+        });
         
         for (Double key : tabelaFrequencia.keySet()){
             

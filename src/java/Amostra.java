@@ -17,7 +17,7 @@ public class Amostra {
     
   
   
-  private static ArrayList<Double> listaDadosColetados = new ArrayList<Double>(); 
+  private ArrayList<Double> listaDadosColetados = new ArrayList<Double>(); 
 
     public ArrayList<Double> getListaDadosColetados() {
         return listaDadosColetados;
