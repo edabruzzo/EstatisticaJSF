@@ -23,6 +23,8 @@ public class CalculosBean {
     private double mediaGeometrica;
     private double mediaHarmonica;
     private Amostra amostra;
+    private double somaValoresAmostrados = 0;
+    private double somaFrequencias = 0;
     
     
     
@@ -71,15 +73,52 @@ public class CalculosBean {
     }
     
     
-    public HashMap<Double, Integer> montarTabelaFrequencia(Amostra amostra){
+    
+    public double getSomaValoresAmostrados() {
+        return somaValoresAmostrados;
+    }
+
+    public void setSomaValoresAmostrados(double somaValoresAmostrados) {
+        this.somaValoresAmostrados = somaValoresAmostrados;
+    }
+
+    public double getSomaFrequencias() {
+        return somaFrequencias;
+    }
+
+    public void setSomaFrequencias(double somaFrequencias) {
+        this.somaFrequencias = somaFrequencias;
+    }
+
+  
+    
+    public void montarTabelaFrequencia(Amostra amostra){
         
         HashMap<Double, Integer> tabelaFrequencia = new HashMap<Double, Integer>();
         
-        return tabelaFrequencia;
+        for (double valor : amostra.getListaDadosColetados()){
+            
+            if (!tabelaFrequencia.containsKey(valor)){
+                
+                tabelaFrequencia.put(valor, 0);
+                
+            }
+            
+            tabelaFrequencia.put(valor, (tabelaFrequencia.get(valor)+1));
+            
+        }
+        
+        for (Double key : tabelaFrequencia.keySet()){
+            
+            somaValoresAmostrados += key;
+	    somaFrequencias += tabelaFrequencia.get(key);
+            
+            
+        }
+        
         
     }
-    
-    
+
     
     
 }
