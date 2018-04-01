@@ -43,7 +43,6 @@ public class AmostraBean implements Serializable{
         try{
             amostra.getListaDadosColetados().add(dadoColetado);
         }catch(NullPointerException npe){
-            System.out.println("NÃO SEI O QUE FAZER AQUI !!!");
             System.out.println(npe.getLocalizedMessage());
             npe.printStackTrace();
         }

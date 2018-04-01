@@ -5,12 +5,53 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    
+  
+    <h:head>
+        <title>ESTATÍSTICA</title>
+      
+     <!--   <h:outputStylesheet library="css" name="tabelas.css" /> -->
+     <!--   <link type="text/css" rel="stylesheet" href="/ControleFinanceiro/style/estilos.css" /> -->
+        	
+    </h:head>
+    
+    
+    <h:body style="background-color: black">
+  			<p:outputPanel> CÁLCULO DE MÉDIAS </p:outputPanel>
+                        
+                        
+                          <f:view>
+     <h:form id="formDados">
+         <p:dataTable id="tabelaDados" >
+             <f:facet name="header">MÉDIAS CALCULADAS</f:facet>
+             <p:column headerText="MÉDIA ARITMÉTICA">
+                 <h:outputText value="#{item}"/>
+             </p:column>
+              <p:column headerText="MÉDIA GEOMÉTRICA">
+                 <h:outputText value="#{item}"/>
+             </p:column>
+              <p:column headerText="MÉDIA HARMÔNICA">
+                 <h:outputText value="#{item}"/>
+             </p:column>
+         </p:dataTable>
+     </h:form>
+ </f:view>    
+                        
+            
+      <p:commandButton id="calculaMedias" value="CALCULAR MÉDIAS" 
+        action="#{amostraBean.calculaMedias()}">
+        </p:commandButton>
+                        
+</h:body>
+        
+                        
+                        
+                        
 </html>
